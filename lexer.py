@@ -1,4 +1,4 @@
-from token import TOKEN_TYPES, Token  # Assumes 'Token' is the class name
+from lexer_token import TOKEN_TYPES, Token  # Assumes 'Token' is the class name
 
 class Lexer:
     def __init__(self, source_code):
@@ -38,6 +38,7 @@ class Lexer:
 
         return Token(TOKEN_TYPES['NUMBER'], result)
 
+    # storng the tokens
     def get_token(self):
         tokens = []
 
@@ -52,7 +53,7 @@ class Lexer:
                 tokens.append(self.number())
 
             elif self.current_char == '=':
-                tokens.append(Token(TOKEN_TYPE['EQUAL'],'='))
+                tokens.append(Token(TOKEN_TYPES['EQUAL'],'='))
                 self.advance()
 
             elif self.current_char == '+':
